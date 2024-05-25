@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    volumes:
+      - /Users/tienminh/Documents/data/postgres:/data/postgres
+    env_file:
+      - docker.env
+    networks:
+      - database
+
+  pgadmin:
+    links:
+      - postgres:manage_postgres
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - "8080:80"
+    volumes:
+      - /Users/tienminh/Documents/data/pgadmin:/root/.pgadmin
+    env_file:
+      - docker.env
+    networks:
+      - database
+
+networks:
+  database:
+    driver: bridge
