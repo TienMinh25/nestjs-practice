@@ -7,6 +7,7 @@ import { DatabaseModule } from './database';
 import PostsModule from './posts/posts.module';
 import { UsersModule } from './users/users.module';
 import { ExceptionsLoggerFilter } from './utils';
+import { CategoriesModule } from './categories/category.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ExceptionsLoggerFilter } from './utils';
     DatabaseModule,
     AuthenticationModule,
     UsersModule,
+    CategoriesModule,
   ],
   controllers: [],
   providers: [
