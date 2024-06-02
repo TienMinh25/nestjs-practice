@@ -9,6 +9,7 @@ import { AuthenticationService } from '../authentication.service';
 
 describe('The AuthenticationService', () => {
   let authenticationService: AuthenticationService;
+  let usersService: UsersService;
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       providers: [
@@ -32,6 +33,7 @@ describe('The AuthenticationService', () => {
     authenticationService = await module.get<AuthenticationService>(
       AuthenticationService,
     );
+    usersService = await module.get<UsersService>(UsersService);
   });
 
   describe('when creating a cookie', () => {
